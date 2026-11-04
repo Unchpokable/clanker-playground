@@ -1,0 +1,11 @@
+{
+  "archetype": "skybox",
+  "properties": {
+    "cube_rt": "textures/skybox/cloudysky_rt.png",
+    "cube_lf": "textures/skybox/cloudysky_lf.png",
+    "cube_ft": "textures/skybox/cloudysky_ft.png",
+    "cube_bk": "textures/skybox/cloudysky_bk.png",
+    "cube_up": "textures/skybox/cloudysky_up.png",
+    "cube_dn": "textures/skybox/cloudysky_dn.png"
+  }
+}
