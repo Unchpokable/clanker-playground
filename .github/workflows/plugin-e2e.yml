@@ -1,0 +1,28 @@
+name: plugin-e2e
+on:
+  workflow_dispatch:
+    inputs:
+      marker:
+        description: Marker echoed by the job
+        required: false
+        default: default-marker
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo marker
+        run: echo "marker=${{ inputs.marker }}"
+      - name: Create artifact
+        run: mkdir -p out && echo "hello from plugin e2e" > out/hello.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-e2e-artifact
+          path: out/hello.txt
+      - name: Cache probe
+        uses: actions/cache@v4
+        with:
+          path: out
+          key: plugin-e2e-${{ github.run_id }}
